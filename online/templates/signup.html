@@ -1,0 +1,47 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}signup{% endblock title %}
+
+{% block main-content %}
+	
+<div class="container">
+	<header>
+		<img src="{% static 'image/logo.png' %}">
+	<!-- <h3>Hyper</h3> -->
+</header>
+	<form action='' method='POST'>
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td><i class="material-icons">person</i></td>
+				<td><input type="text" name="username" placeholder="Username" id="unm" required="true" class='signup-input' autocomplete='off' autofocus></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td id='demo'></td>
+			</tr>
+			<tr>
+				<td><i class="material-icons">email</i></td>
+				<td><input type="email" name="email" placeholder="Email" id="em" required="true" class='signup-input'></td>
+			</tr>
+			<tr>
+				<td><i class="material-icons">lock</i></td>
+				<td><input type="password" name="password" placeholder="Password" id="ps" required="true" class='signup-input'><span class='material-icons' id='visibility'>visibility_off</span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td id='pass'><ul>
+					<li id='l1'>Minimum 8 chars and Maximum 20 chars</li>
+					<li id='l2'>Use special chars for strong password</li>
+					<li id='l3'>Use number for strong password </li>
+					<li id="l4">Use a Captial chars</li>
+				</ul></td>
+			</tr>
+		</table>
+		<input type="submit" name="" value="Create Account" class='btn' id='submit'>
+	</form>
+	<div>
+		<a href="{% url 'login' %}">login?</a>
+	</div>
+</div>
+{% endblock main-content %}

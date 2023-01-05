@@ -1,0 +1,20 @@
+.question-container{
+    background-color: whitesmoke;
+}
+.question{
+    width: 50%;
+    margin-left: 100px;
+    padding: 10px;
+}
+.queno{
+    padding: 10px;
+}
+
+.test{
+    padding: 5px;
+    margin-top: 5px;
+    padding-left: 13px;
+    display: inline-block;
+    width: 100%;
+    border: 1px solid lightblue;
+}

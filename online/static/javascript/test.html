@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		testing page
+	</title>
+	<style type="text/css">
+		button{
+			padding: 12px;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="change()">Click Me!</button>
+</body>
+<script type="text/javascript">
+	var count=111;
+	function change()
+	{
+		var col=["red","blue","green","teal","orange","black"];
+		
+		// var colour=col[count++];
+		count++;
+		document.body.style.backgroundColor=`#${count}`;
+	}
+</script>
+</html>

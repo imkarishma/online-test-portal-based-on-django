@@ -1,0 +1,46 @@
+{% extends './base.html' %}
+{% load static %}
+{% load level %}
+{% block title %}show-answer{% endblock title %}
+
+
+{% block main-content %}
+
+<div class="main-ans-container">
+    <div class="back-btn">
+        <a href="{% url 'showquestions' %}"><i class="material-icons">arrow_back</i></a>
+    </div>
+    <div class="current-profile">
+        {% if detail.image %}
+        <img src="{{detail.image.url}}" alt="">
+        {% else %}
+        <img src="{% static 'image/logo.png' %}" alt="">
+        {% endif %}
+        <h5>Level {{detail.points|level_filter}}</h5>
+        <h6>{{detail.points}} points</h6>
+        <div class='profile-btn'>
+            <a href="{% url 'myprofile' %}">Visit Profile</a>
+        </div>
+    </div>
+    <div class="current-answer">
+        <div class="current-answer-itmes">
+            <h3>You have scored</h3>
+            <h5><strong>{{score}}%</strong></h5>
+        </div>
+        <div class='current-answer-itmes'>
+            <h3>Correct Answer</h3>
+            <h5><strong>{{correct}}</strong></h5>
+        </div>
+        <div class="current-answer-itmes">
+            <h3>Wrong Answer</h3>
+            <h5><strong>{{wrong}}</strong></h5>
+        </div>
+        <div class='current-answer-itmes'>
+            <h3>Total Attemp</h3>
+            <h5><strong>{{total}}</strong></h5>
+        </div>
+
+    </div>
+</div>
+
+{% endblock main-content %}

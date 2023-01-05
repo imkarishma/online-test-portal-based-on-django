@@ -1,0 +1,56 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}profile{% endblock title %}
+
+{% block main-content %}
+<div class="profile-main-container">
+    <div class="image-container">
+        <div class="image-name-container">
+            {% if person.image %}
+            <img src="{{person.image.url}}" alt="">
+            {% else %}
+            <img src="{% static 'image/logo.png' %}" alt="">
+            {% endif %}
+            <div class='name'>
+                <h3>{{request.user.username}}</h3>
+            </div>
+        </div>
+        <div class="edit">
+            <a href="{% url 'edit-profile' %}"><i class="material-icons">edit</i></a>
+        </div>
+    </div>
+    
+    <div class="details-container">
+        {% if person.name %}
+        <div class="detail">
+            <span>Name</span>
+            <h4>{{person.name}}</h4>
+        </div>
+        {% endif %}
+        {% if email %} 
+        <div class="detail">
+            <span>Email</span>
+            <h4>{{email}}</h4>
+        </div>
+        {% endif %} 
+        {% if person.institute %}
+        <div class="detail">
+            <span>Institute</span>
+            <h4>{{person.institute}}</h4>
+        </div>
+        {% endif %} 
+        {% if person.degree %}
+        <div class="detail">
+            <span>Graduation</span>
+            <h4>{{person.degree}}</h4>
+        </div>
+        {% endif %}
+        {% if person.branch %}
+        <div class="detail">
+            <span>Branch</span>
+            <h4>{{person.branch}}</h4>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock main-content %}

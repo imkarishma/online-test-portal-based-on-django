@@ -1,0 +1,36 @@
+{% extends './base.html' %}
+{% block title %}showquestions{% endblock title %}
+{% block main-content %}
+
+<div class='question-container'>
+    <!--
+    <div class="time-counter-container" >
+        <h1 id='countdown' onclick='timer()'>10:00</h1>
+    </div>
+    -->
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for question in questions %}
+        <div class="question">
+            <input type="hidden" name="que{{question.queno}}" value="{{question.queno}}">
+            <div class="queno">
+                <strong>{{forloop.counter}}.{{question.question}}</strong>
+            </div>
+            <!--<input type="radio" name="q{{question.queno}}" id="a{{question.queno}}" value='a' hidden><label for="a{{question.queno}}" class='test'>{{question.optiona}}</label>
+            <input type="radio" name="q{{question.queno}}" id="b{{question.queno}}" value='b'><label for="b{{question.queno}}" class='test'>{{question.optionb}}</label>
+            <input type="radio" name="q{{question.queno}}" id="c{{question.queno}}" value='c'><label for="c{{question.queno}}" class='test'>{{question.optionc}}</label>
+            <input type="radio" name="q{{question.queno}}" id="d{{question.queno}}" value='d'><label for="d{{question.queno}}" class='test'>{{question.optiond}}</label>-->
+            <div class='option'>a) <input type="radio" name="q{{question.queno}}" id="a{{question.queno}}" value='a' > <label for="a{{question.queno}}">{{question.optiona}}</label></div>
+            <div class='option'>b) <input type="radio" name="q{{question.queno}}" id="b{{question.queno}}" value='b' > <label for="b{{question.queno}}">{{question.optionb}}</label></div>
+            <div class='option'>c) <input type="radio" name="q{{question.queno}}" id="c{{question.queno}}" value='c' > <label for="c{{question.queno}}">{{question.optionc}}</label></div>
+            <div class='option'>d) <input type="radio" name="q{{question.queno}}" id="d{{question.queno}}" value='d' > <label for="d{{question.queno}}">{{question.optiond}}</label></div>
+
+        </div>
+        {% endfor %}
+        <div style="margin-left:50px;margin-top:10px;">
+            <input type="submit" value="Submit" class='btn-sub btn-3'>
+        </div>
+    </form>
+</div>
+
+{% endblock main-content %}

@@ -1,0 +1,32 @@
+{% extends './base.html' %}
+{% block title %}all question{% endblock title %}
+
+
+{% block main-content %}
+<div class='show-container'>
+    <table border='1'>
+        <tr>
+            <th>Question</th>
+            <th>Option A</th>
+            <th>Option B</th>
+            <th>Option C</th>
+            <th>Option D</th>
+            <th>Answer</th>
+            <th colspan='2'>Action</th>
+        </tr>
+        {% for question in questions %}
+        <tr>
+            <td title='this question create by {{request.user.username}}'>{{question.question}}</td>
+            <td>{{question.optiona}}</td>
+            <td>{{question.optionb}}</td>
+            <td>{{question.optionc}}</td>
+            <td>{{question.optiond}}</td>
+            <td>{{question.answer}}</td>
+            <td><a href="{% url 'edit' question.queno %}" class='edit'><i class="material-icons">edit</i></a></td>
+            <td><a href="{% url 'delete' question.queno %}" class='delete'><i class="material-icons">delete</i></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock main-content %}

@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %} home {% endblock title %}
+
+{% block main-content %}
+{% if request.user.is_authenticated %}
+<div class='title'>
+    <h3>Hi {{request.user.username|capfirst}},<br> Welcome to Hyper</h3>
+</div>
+{% endif %}
+<div class="containt">
+    <div class="containt-item">
+        <h2>Hyper helps you to improve your programming skills.</h2>
+        <p><span>“Time management”</span> is the process of organizing and planning how to divide your time between specific activities,</p>
+        {% comment %} <div class="sign-up-container">
+            <input type="email" name="email" placeholder="Email">
+            <a href="signup.html"><input type="submit" name="" value="Sign up - it's free"></a>
+        </div> {% endcomment %}
+    </div>
+    <div class="containt-item">
+        <img src="{% static 'image/image1.webp' %}">
+    </div>
+</div>
+
+
+{% endblock main-content %}

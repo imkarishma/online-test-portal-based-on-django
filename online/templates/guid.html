@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %}guid{% endblock title %}
+
+{% block main-content %}
+<div class="guid-container">
+    <div class="guid">
+        <h2>Quiz Guid</h2>
+        <h4>1. You Have Only 20 Second For Each Question.</h4>
+        <h4>2. You'll Get Points On The Basic of Your Correct Answer.</h4>
+        <h4>3. You Can't Exit From The Quiz While You Are You Are Playing.</h4>
+        <div class="guid-button">
+            <button id='Exit'><a href="{% url 'home' %}">Exit</a></button>
+            <button id='continue'><a href="{% url 'showquestions' %}">Continue</a></button>
+        </div>
+    </div>
+    
+</div>
+{% endblock main-content %}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>online | {% block title %} {% endblock title %}</title>
+    <link rel="icon" href="../image/logo.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <!--font family link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;1,200&display=swap" rel="stylesheet">
+
+    
+    <!--  Costum CSS -->
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/showquestion.css' %}">
+    <link rel="stylesheet" href="{% static 'css/showanswer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/addquestion.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+</head>
+<body>
+    
+    <nav class='navigation'>
+        <div class='navigation-logo'>
+            <img src="{% static 'image/logo.png' %}" alt="">
+        </div>
+        <ul class='navigation-ul'>
+            
+            <li class='navigation-li'><a href="{% url 'home' %}">Home</a></li>
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_staff %}
+                <li class='navigation-li'><a href="{% url 'add-questions' %}">Add Question</a></li>
+                <li class='navigation-li'><a href="{% url 'showall-admin-question' %}">Show Question</a></li>
+                {% endif %}
+            <li class='navigation-li'><a href="{% url 'myprofile' %}">My Profile</a></li>
+            <li class='navigation-li'><a href="{% url 'guid' %}">Online Test</a></li>
+            <li class='navigation-li'><a href="{% url 'showquestions' %}">To Do</a></li>
+            <li class='navigation-li'><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li class='navigation-li'><a href="{% url 'login' %}">Login</a></li>
+            <li class='navigation-li'><a href="{%url 'signup' %}">Signup</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    {% block main-content %}
+    
+    {% endblock main-content %}
+
+
+    <!-- Jquery CDN link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'javascript/show.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}edit-profile{% endblock title %}
+
+{% block main-content %}
+<div class="profile-main-container">
+    <div class="image-container">
+        <div class="image-name-container">
+            <img src="{% static 'image/logo.png' %}" alt="">
+            <div class='name'>
+                <h3>{{request.user.username}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="details-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="detail">
+                <span>Name</span>
+                <input type="text" value='{{name}}' autofocus name='name'> 
+            </div>
+                
+            <div class="detail">
+                <span>Email</span>
+                <input type="email" value='{{email}}' name='email'>
+            </div>
+            <div class="detail">
+                <span>Institute</span>
+                <input type="text" value='{{institute}}' name='institute'>
+            </div>
+            <div class="detail">
+                <span>Graduation</span>
+                <select name="degree" id="">
+                    <option value="B tech" {% if degree == 'B tech' %} selected {% endif %}>B tech</option>
+                    <option value="M tech" {% if degree == 'M tech' %} selected {% endif %}>M tech</option>
+                </select>
+            </div>
+            <div class="detail">
+                <span>Branch</span>
+                <select name="branch" id="">
+                    <option value="CSE" {% if branch == 'CSE' %} selected{% endif %}>CSE</option>
+                    <option value="EC" {% if branch == 'EC' %} selected{% endif %}>EC</option>
+                    <option value="CIVIL" {% if branch == 'CIVIL' %} selected{% endif %}>CIVIL</option>
+                    <option value="EX" {% if branch == 'EX' %} selected{% endif %}>EX</option>
+                </select>
+            </div>
+            <div >
+                    <input type="submit" value="Update" class='btn-sub btn-3'>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock main-content %}

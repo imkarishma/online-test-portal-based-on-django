@@ -1,0 +1,82 @@
+.profile-main-container{
+    padding: 30px 50px;
+    /* border:1px solid blue */
+
+}
+.image-container{
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid yellow; */
+    justify-items: center;
+}
+.image-name-container{
+    display: flex;
+    justify-items: center;
+}
+.image-name-container h3{
+    padding: 10px 5px 5px 10px;
+}
+.edit{
+    /* margin-left: 40%; */
+    float: right;
+    /* border: 1px solid green; */
+    margin-top: 12px;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+.edit:hover
+{
+    color: white;
+    background-color: orange;
+}
+
+img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+span strong{
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.details-container{
+    margin-top: 20px;
+    border: 1px solid rgb(163, 182, 181);
+    padding: 12px;
+}
+.detail{
+    border-bottom: 1px solid rgb(151, 145, 145);
+    /* padding: 7px; */
+    width: 80%;
+    margin-top: 10px;
+    padding: 12px 0px 6px 0px;
+}
+.detail h4{
+    margin-top: -4px;
+    padding-left: 3px;
+    color: rgb(66, 59, 59);
+}
+.detail span{
+    color: rgb(75, 73, 73);
+    display: block;
+}
+.detail input{
+    width: 50%;
+    padding: 7px;
+    margin-bottom: -6px;
+    border: 0px solid;
+}
+.detail input:focus{
+    outline: none;
+    transition: width 3s;
+    width: 80%;
+}
+
+.update-btn-div{
+    float: right;
+    margin-right: 100px;
+}

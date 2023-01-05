@@ -1,0 +1,60 @@
+{% extends './base.html' %}
+{% block title %}edit{% endblock title %}
+{% block main-content %}
+
+<div class='add-question-container'>
+    {% if messages %}
+    {% for message in messages  %}
+    <h4 {% if message.tags %}class='{{message.tags}}'{% endif %}>{{message}}</h4>
+    {% endfor %}
+    {% endif %}
+  <form action="" method="POST">
+      {% csrf_token %}
+      <input type="hidden" name="queno" value='{{question.queno}}'>
+      <div>
+          <label for="" style='vertical-align:top'>Question:</label>
+        <textarea name="question" id="" cols="63" rows="5">{{question.question}}</textarea>
+    </div>
+    <div>
+        <label for="">Option a:</label>
+        <input type="text" name="optiona" value='{{question.optiona}}' class='question-input'>
+    </div>
+    <div>
+        <label for="">Option b:</label>
+        <input type="text" name="optionb" value='{{question.optionb}}' class='question-input'>
+    </div>
+    <div>
+        <label for="">Option c:</label>
+        <input type="text" name="optionc" value='{{question.optionc}}' class='question-input'>
+    </div>
+    <div>
+        <label for="">Option d:</label>
+        <input type="text" name="optiond" value='{{question.optiond}}' class='question-input'>
+    </div>
+    <div>
+        <label for="">Answer:</label>
+        <select name="ans" id="" class='select'>
+            <option value="a" {% if question.answer == 'a' %} selected {% endif %}>A</option>
+            <option value="b"  {% if question.answer == 'b' %} selected {% endif %}>B</option>
+            <option value="c"  {% if question.answer == 'c' %} selected {% endif %}>C</option>
+            <option value="d"  {% if question.answer == 'd' %} selected {% endif %}>D</option>
+        </select>
+    </div>
+    <div>
+        <label for="">Category:</label>
+        <select name="cate" id="" class='select'>
+            <option value="python" {% if question.category == 'python' %}selected{% endif %}>Python</option>
+            <option value="c" {% if question.category == 'c' %}selected{% endif %}>C</option>
+            <option value="c++" {% if question.category == 'c++' %}selected{% endif %}>C++</option>
+            <option value="java" {% if question.category == 'java' %}selected{% endif %}>Java</option>
+            <option value="javascript" {% if question.category == 'javascript' %}selected{% endif %}>Javascript</option>
+            <option value="data structure" {% if question.category == 'data structure' %}selected{% endif %}>Data Structure</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Submit" class='btn-sub btn-3'>
+    </div>
+  </form>
+</div>
+
+{% endblock main-content %}

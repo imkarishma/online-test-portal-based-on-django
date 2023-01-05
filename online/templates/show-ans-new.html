@@ -1,0 +1,23 @@
+{% extends './base.html' %}
+{% block title %}show-ans-new{% endblock title %}
+
+{% block main-content %}
+
+
+<div class="show-ans-new">
+    <div class="show-ans">
+        <div class="congratulations">
+            <span class='material-icons'>emoji_events</span>
+        </div>
+        <div class="score">
+            <h4>You've Completed the Quiz!</h4>
+            <h5>and congrats! You got {{correct}} out of {{total}}</h5>
+        </div>
+        <div class="guid-button">
+            <button id='Exit'><a href="{% url 'home' %}">Quit</a></button>
+            <button id='continue'><a href="{% url 'showquestions' %}">Replay</a></button>
+        </div>
+    </div>
+</div>
+
+{% endblock main-content %}

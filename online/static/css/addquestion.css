@@ -1,0 +1,31 @@
+.add-question-container{
+    margin: auto;
+    width: 80%;
+    height: 650px;
+    background-color: whitesmoke;
+    box-shadow: 0px 12px 24px 0px rgb(199, 191, 191);
+    padding: 30px;
+    margin-top: 50px;
+}
+
+.question-input{
+    background-color: whitesmoke;
+    padding: 7px;
+    margin: 5px;
+    outline: none;
+    border:1px solid black;
+    width: 50%;
+    border-radius: 5px;
+}
+.question-input:focus,textarea:focus{
+    outline: none;
+}
+.select{
+    width: 100px;
+    padding: 5px;
+    margin: 4px;
+}
+textarea{
+    padding-left: 10px;
+    letter-spacing:1px;
+}
